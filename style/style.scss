@@ -1,6 +1,7 @@
 $purple: #8a6ef8;
 $mobile-width: 400;
-$display-width: 1200px;
+$average-width: 800;
+$display-width: 1200;
 
 @mixin width($width) {
   @if ($width==400) {
@@ -11,8 +12,13 @@ $display-width: 1200px;
     @media screen and (max-width: 800px) {
       @content;
     }
+  } @else if ($width==1200) {
+    @media screen and (max-width: 1200px) {
+      @content;
+    }
   }
 }
+
 @mixin hover() {
   color: $purple;
 }
@@ -45,41 +51,75 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @include width($average-width) {
+    flex-direction: column;
+    justify-content: center;
+    padding: 29px;
+  }
+  .button {
+    @include width($average-width) {
+      display: none;
+    }
+  }
 }
 .header__header__h1 {
   color: $purple;
   font-size: 48px;
   margin-bottom: 16px;
+  @include width($average-width) {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+  }
 }
 .header__header__p {
   font-size: 28px;
   margin-bottom: 42px;
+  @include width($display-width) {
+    font-size: 15px;
+  }
 }
 .button {
   background-color: $purple;
   color: #ffffff;
   border: none;
   font-family: "yekanbakhregular";
-  font-size: 20px;
+  font-size: 16px;
   padding: 12.5px 44.5px;
   border-radius: 10px;
+  @include width($display-width) {
+    font-size: 14px;
+  }
 }
 
 .gridcontainer {
+  width: 100%;
   display: grid;
+  padding-left: 20px;
   grid-template-areas: " main aside";
   grid-template-columns: 2.66fr 1fr;
   align-items: start;
   gap: 30px;
+  @include width($average-width) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 29px;
+  }
 }
 .aside {
+  width: 100%;
   height: auto;
   padding: 20px;
   margin-left: 110px;
   border-radius: 20px;
   grid-area: aside;
   background: #ffffff;
-
+  @include width($average-width) {
+    padding: 20px;
+    margin: 0 auto;
+  }
   .button {
     width: 100%;
   }
@@ -105,6 +145,10 @@ body {
   margin: 0 auto;
   max-width: 1100px;
   padding-right: 107px;
+  @include width($display-width) {
+    padding: 29px;
+    width: 100vw;
+  }
 }
 
 .menulist__items {
@@ -116,6 +160,7 @@ body {
   }
 }
 .menulist {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   border: 1px dashed $purple;
@@ -123,6 +168,14 @@ body {
   padding: 12px 0px;
   margin-bottom: 42px;
   font-size: 21px;
+
+  @include width($average-width) {
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+  }
 }
 .jumps {
   transition: all 0.5s ease;
@@ -131,7 +184,7 @@ body {
   // margin-right: 107px;
 
   color: #282828;
-  @include width($mobile-width) {
+  @include width($average-width) {
     margin: 31px 12px;
   }
 }
@@ -139,7 +192,7 @@ body {
   font-size: 28px;
   text-align: center;
   margin-bottom: 44px;
-  @include width($mobile-width) {
+  @include width($average-width) {
     font-size: 20px;
   }
 }
@@ -151,6 +204,9 @@ body {
   font-size: 20px;
   text-align: justify;
   line-height: 2.07;
+  @include width($average-width) {
+    font-size: 15px;
+  }
   &:last-of-type {
     margin-bottom: 84px;
   }
@@ -166,9 +222,10 @@ body {
   justify-content: flex-start;
   margin-bottom: 83px;
   align-items: stretch;
-  @include width($mobile-width) {
+  @include width($average-width) {
     margin: 0;
     gap: 12px;
+    margin-bottom: 40px;
   }
 }
 .card {
@@ -227,7 +284,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 220px;
+  height: 700px;
 }
 
 .learningflow__course {
@@ -237,6 +294,11 @@ body {
   align-items: center;
   position: absolute;
   width: 205px;
+  text-align: center;
+  @include width($average-width) {
+    flex-direction: row-reverse;
+    text-align: left;
+  }
 }
 .learningflow__img {
   width: 60px;
@@ -244,6 +306,9 @@ body {
 }
 .learningflow__description {
   font-size: 12px;
+  @include width($average-width) {
+    margin-left: 10px;
+  }
 }
 .learningflow__header {
   font-size: 16px;
@@ -265,36 +330,59 @@ body {
 }
 
 .html {
-  right: 0px;
+  left: 78%;
   top: 65px;
+  @include width($average-width) {
+    // right: 50%;
+    top: 0px;
+    left: 70px;
+  }
 }
 .js {
   left: 60%;
+  @include width($average-width) {
+    top: 150px;
+    left: 0;
+  }
 }
 .git {
   left: 40%;
   top: 65px;
+  @include width($average-width) {
+    top: 300px;
+    left: 70px;
+  }
 }
 .react {
   left: 20%;
+  @include width($average-width) {
+    top: 450px;
+    left: 0px;
+  }
 }
 .next {
   left: 0px;
   top: 65px;
+  @include width($average-width) {
+    top: 600px;
+    left: 70px;
+  }
 }
 
 .accordion-wrapper {
-  // width: 100%;
+  width: 100%;
   margin: 70px 0px;
 
   background: $purple;
   border-radius: 25px;
   padding: 33.51px 50px;
   font-family: "Vazirmatn", Arial, Helvetica, sans-serif;
-  @include width($mobile-width) {
+  @include width($average-width) {
     border-radius: 0;
     margin: 0;
     padding: 22px;
+    font-size: 20px;
+    margin-bottom: 40px;
   }
 }
 .accordion-wrapper__header {
@@ -306,7 +394,7 @@ body {
     margin-right: 13.8px;
     font-size: 28px;
     font-weight: semi-bold;
-    @include width($mobile-width) {
+    @include width($average-width) {
       font-size: 24px;
     }
   }
@@ -314,7 +402,7 @@ body {
 .accordion-svg {
   width: 24px;
   height: 24px;
-  @include width($mobile-width) {
+  @include width($average-width) {
     width: 16px;
     height: 16px;
   }
@@ -328,7 +416,7 @@ body {
   border-radius: 25px;
   margin-bottom: 22px;
   padding: 16.5px 20px;
-  @include width($mobile-width) {
+  @include width($average-width) {
     margin-bottom: 20px;
   }
 }
@@ -338,7 +426,7 @@ body {
   justify-content: space-between;
   font-size: 22px;
   transition: all 0.5s ease;
-  @include width($mobile-width) {
+  @include width($average-width) {
     font-size: 18px;
   }
   &:hover {
@@ -350,7 +438,7 @@ body {
   font-size: 16px;
   list-style-position: inside;
   display: none;
-  @include width($mobile-width) {
+  @include width($average-width) {
     font-size: 14;
   }
   li::marker {
@@ -374,18 +462,31 @@ body {
 }
 .instructor__img {
   width: 375px;
+  @include width($average-width) {
+    width: 100%;
+    margin-bottom: 25px;
+  }
 }
 .instructor--flex {
   display: flex;
+  @include width($average-width) {
+    flex-direction: column;
+  }
 }
 .instructor__header {
   font-size: 24px;
   margin-bottom: 8px;
+  @include width($average-width) {
+    font-size: 20px;
+  }
 }
 .instructor__title {
   font-size: 20px;
   margin-bottom: 20px;
   color: gray;
+  @include width($average-width) {
+    font-size: 16px;
+  }
 }
 .instructor__description {
   line-height: 45px;
@@ -400,6 +501,10 @@ body {
   flex-direction: row;
   text-align: center;
   margin-bottom: 96px;
+  @include width($average-width) {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
 }
 .mentor__img {
   width: 124px;
@@ -409,12 +514,24 @@ body {
 }
 .mentor__name {
   font-size: 16px;
+  @include width($average-width) {
+    font-size: 14px;
+  }
 }
 .mentor__role {
   font-weight: 400;
   font-size: 14px;
+  @include width($average-width) {
+    margin-bottom: 25px;
+    font-size: 12px;
+  }
 }
-
+.arrow {
+  @include width($average-width) {
+    transform: rotate(-90deg);
+    margin-bottom: 25px;
+  }
+}
 .mentor--midlle {
   .mentor__img {
     width: 180px;
@@ -431,33 +548,57 @@ body {
 .commonquestions {
   width: 100%;
   padding: 0 84px;
+  @include width($average-width) {
+    padding: 0 29px;
+  }
 }
 
 .commonquestions__header {
   text-align: center;
+  @include width($average-width) {
+    font-size: 20px;
+  }
 }
 .question__header div {
   justify-content: center;
   align-items: center;
 }
-
+.question__header {
+  @include width($average-width) {
+    font-size: 14px;
+  }
+}
+.question__answer {
+  @include width($average-width) {
+    font-size: 11px;
+  }
+}
 .commonquestions__body {
   width: 100%;
   display: flex;
   flex-direction: row;
   margin-bottom: 74px;
+  @include width($average-width) {
+    flex-direction: column;
+  }
 }
 .commonquestions__img-right {
   border-radius: 50%;
   flex-basis: 9%;
   width: 150px;
   align-self: flex-end;
+  @include width($average-width) {
+    display: none;
+  }
 }
 .commonquestions__img-left {
   flex-basis: 9%;
   border-radius: 50%;
   width: 150px;
   align-self: flex-start;
+  @include width($average-width) {
+    width: 80px;
+  }
 }
 .qa {
   flex-basis: 82%;

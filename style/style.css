@@ -28,16 +28,40 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+@media screen and (max-width: 800px) {
+  .header__header {
+    flex-direction: column;
+    justify-content: center;
+    padding: 29px;
+  }
+}
+@media screen and (max-width: 800px) {
+  .header__header .button {
+    display: none;
+  }
+}
 
 .header__header__h1 {
   color: #8a6ef8;
   font-size: 48px;
   margin-bottom: 16px;
 }
+@media screen and (max-width: 800px) {
+  .header__header__h1 {
+    font-size: 28px;
+    font-weight: 800;
+    text-align: center;
+  }
+}
 
 .header__header__p {
   font-size: 28px;
   margin-bottom: 42px;
+}
+@media screen and (max-width: 1200px) {
+  .header__header__p {
+    font-size: 15px;
+  }
 }
 
 .button {
@@ -45,26 +69,49 @@ body {
   color: #ffffff;
   border: none;
   font-family: "yekanbakhregular";
-  font-size: 20px;
+  font-size: 16px;
   padding: 12.5px 44.5px;
   border-radius: 10px;
 }
+@media screen and (max-width: 1200px) {
+  .button {
+    font-size: 14px;
+  }
+}
 
 .gridcontainer {
+  width: 100%;
   display: grid;
+  padding-left: 20px;
   grid-template-areas: " main aside";
   grid-template-columns: 2.66fr 1fr;
   align-items: start;
   gap: 30px;
 }
+@media screen and (max-width: 800px) {
+  .gridcontainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 29px;
+  }
+}
 
 .aside {
+  width: 100%;
   height: auto;
   padding: 20px;
   margin-left: 110px;
   border-radius: 20px;
   grid-area: aside;
   background: #ffffff;
+}
+@media screen and (max-width: 800px) {
+  .aside {
+    padding: 20px;
+    margin: 0 auto;
+  }
 }
 .aside .button {
   width: 100%;
@@ -94,6 +141,12 @@ body {
   max-width: 1100px;
   padding-right: 107px;
 }
+@media screen and (max-width: 1200px) {
+  .main {
+    padding: 29px;
+    width: 100vw;
+  }
+}
 
 .menulist__items {
   list-style: none;
@@ -105,6 +158,7 @@ body {
 }
 
 .menulist {
+  width: 100%;
   display: flex;
   justify-content: space-around;
   border: 1px dashed #8a6ef8;
@@ -112,6 +166,14 @@ body {
   padding: 12px 0px;
   margin-bottom: 42px;
   font-size: 21px;
+}
+@media screen and (max-width: 800px) {
+  .menulist {
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
 }
 
 .jumps {
@@ -121,7 +183,7 @@ body {
 .container {
   color: #282828;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .container {
     margin: 31px 12px;
   }
@@ -132,7 +194,7 @@ body {
   text-align: center;
   margin-bottom: 44px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .header {
     font-size: 20px;
   }
@@ -147,6 +209,11 @@ body {
   font-size: 20px;
   text-align: justify;
   line-height: 2.07;
+}
+@media screen and (max-width: 800px) {
+  .header__description {
+    font-size: 15px;
+  }
 }
 .header__description:last-of-type {
   margin-bottom: 84px;
@@ -165,10 +232,11 @@ body {
   margin-bottom: 83px;
   align-items: stretch;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .cards-wrapper {
     margin: 0;
     gap: 12px;
+    margin-bottom: 40px;
   }
 }
 
@@ -241,7 +309,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 220px;
+  height: 700px;
 }
 
 .learningflow__course {
@@ -251,6 +319,13 @@ body {
   align-items: center;
   position: absolute;
   width: 205px;
+  text-align: center;
+}
+@media screen and (max-width: 800px) {
+  .learningflow__course {
+    flex-direction: row-reverse;
+    text-align: left;
+  }
 }
 
 .learningflow__img {
@@ -260,6 +335,11 @@ body {
 
 .learningflow__description {
   font-size: 12px;
+}
+@media screen and (max-width: 800px) {
+  .learningflow__description {
+    margin-left: 10px;
+  }
 }
 
 .learningflow__header {
@@ -287,40 +367,73 @@ body {
 }
 
 .html {
-  right: 0px;
+  left: 78%;
   top: 65px;
+}
+@media screen and (max-width: 800px) {
+  .html {
+    top: 0px;
+    left: 70px;
+  }
 }
 
 .js {
   left: 60%;
+}
+@media screen and (max-width: 800px) {
+  .js {
+    top: 150px;
+    left: 0;
+  }
 }
 
 .git {
   left: 40%;
   top: 65px;
 }
+@media screen and (max-width: 800px) {
+  .git {
+    top: 300px;
+    left: 70px;
+  }
+}
 
 .react {
   left: 20%;
+}
+@media screen and (max-width: 800px) {
+  .react {
+    top: 450px;
+    left: 0px;
+  }
 }
 
 .next {
   left: 0px;
   top: 65px;
 }
+@media screen and (max-width: 800px) {
+  .next {
+    top: 600px;
+    left: 70px;
+  }
+}
 
 .accordion-wrapper {
+  width: 100%;
   margin: 70px 0px;
   background: #8a6ef8;
   border-radius: 25px;
   padding: 33.51px 50px;
   font-family: "Vazirmatn", Arial, Helvetica, sans-serif;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .accordion-wrapper {
     border-radius: 0;
     margin: 0;
     padding: 22px;
+    font-size: 20px;
+    margin-bottom: 40px;
   }
 }
 
@@ -335,7 +448,7 @@ body {
   font-size: 28px;
   font-weight: semi-bold;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .accordion-wrapper__header h1 {
     font-size: 24px;
   }
@@ -345,7 +458,7 @@ body {
   width: 24px;
   height: 24px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .accordion-svg {
     width: 16px;
     height: 16px;
@@ -363,7 +476,7 @@ body {
   margin-bottom: 22px;
   padding: 16.5px 20px;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .accordion {
     margin-bottom: 20px;
   }
@@ -376,7 +489,7 @@ body {
   font-size: 22px;
   transition: all 0.5s ease;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .accordion__header {
     font-size: 18px;
   }
@@ -391,7 +504,7 @@ body {
   list-style-position: inside;
   display: none;
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 800px) {
   .accordion__topics {
     font-size: 14;
   }
@@ -421,20 +534,41 @@ body {
 .instructor__img {
   width: 375px;
 }
+@media screen and (max-width: 800px) {
+  .instructor__img {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+}
 
 .instructor--flex {
   display: flex;
+}
+@media screen and (max-width: 800px) {
+  .instructor--flex {
+    flex-direction: column;
+  }
 }
 
 .instructor__header {
   font-size: 24px;
   margin-bottom: 8px;
 }
+@media screen and (max-width: 800px) {
+  .instructor__header {
+    font-size: 20px;
+  }
+}
 
 .instructor__title {
   font-size: 20px;
   margin-bottom: 20px;
   color: gray;
+}
+@media screen and (max-width: 800px) {
+  .instructor__title {
+    font-size: 16px;
+  }
 }
 
 .instructor__description {
@@ -451,6 +585,12 @@ body {
   text-align: center;
   margin-bottom: 96px;
 }
+@media screen and (max-width: 800px) {
+  .mentors__list {
+    flex-direction: column;
+    margin-bottom: 0px;
+  }
+}
 
 .mentor__img {
   width: 124px;
@@ -462,10 +602,28 @@ body {
 .mentor__name {
   font-size: 16px;
 }
+@media screen and (max-width: 800px) {
+  .mentor__name {
+    font-size: 14px;
+  }
+}
 
 .mentor__role {
   font-weight: 400;
   font-size: 14px;
+}
+@media screen and (max-width: 800px) {
+  .mentor__role {
+    margin-bottom: 25px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .arrow {
+    transform: rotate(-90deg);
+    margin-bottom: 25px;
+  }
 }
 
 .mentor--midlle .mentor__img {
@@ -483,14 +641,36 @@ body {
   width: 100%;
   padding: 0 84px;
 }
+@media screen and (max-width: 800px) {
+  .commonquestions {
+    padding: 0 29px;
+  }
+}
 
 .commonquestions__header {
   text-align: center;
+}
+@media screen and (max-width: 800px) {
+  .commonquestions__header {
+    font-size: 20px;
+  }
 }
 
 .question__header div {
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .question__header {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .question__answer {
+    font-size: 11px;
+  }
 }
 
 .commonquestions__body {
@@ -499,6 +679,11 @@ body {
   flex-direction: row;
   margin-bottom: 74px;
 }
+@media screen and (max-width: 800px) {
+  .commonquestions__body {
+    flex-direction: column;
+  }
+}
 
 .commonquestions__img-right {
   border-radius: 50%;
@@ -506,12 +691,22 @@ body {
   width: 150px;
   align-self: flex-end;
 }
+@media screen and (max-width: 800px) {
+  .commonquestions__img-right {
+    display: none;
+  }
+}
 
 .commonquestions__img-left {
   flex-basis: 9%;
   border-radius: 50%;
   width: 150px;
   align-self: flex-start;
+}
+@media screen and (max-width: 800px) {
+  .commonquestions__img-left {
+    width: 80px;
+  }
 }
 
 .qa {
